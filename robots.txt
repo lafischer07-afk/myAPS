@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://myaps.netlify.app/sitemap.xml
