@@ -24,32 +24,32 @@ jobs:
               3: {
                 title: `[March] Early data check — Wits, UKZN, DUT (${year} intake)`,
                 unis: [
-                  '- [ ] **Wits University** — https://www.wits.ac.za/course-finder/',
-                  '- [ ] **University of KwaZulu-Natal** — https://applications.ukzn.ac.za',
-                  '- [ ] **Durban University of Technology** — https://www.dut.ac.za/admissions/',
+                  '- [ ] **Wits University**\\n  - Admissions: https://www.wits.ac.za/study-at-wits/undergraduate/\\n  - Course Finder: https://www.wits.ac.za/course-finder/\\n  - Download the prospectus PDF and drop it into Claude Code',
+                  '- [ ] **University of KwaZulu-Natal**\\n  - Admissions: https://applications.ukzn.ac.za\\n  - Prospectus: https://applications.ukzn.ac.za/?page_id=1225\\n  - Download the prospectus PDF and drop it into Claude Code',
+                  '- [ ] **Durban University of Technology**\\n  - Admissions: https://www.dut.ac.za/admissions/\\n  - Look for the handbook/prospectus PDF on the admissions page\\n  - Download and drop it into Claude Code',
                 ],
-                note: 'These universities typically publish requirements earliest (Feb/Mar). Check if new prospectuses are available.'
+                note: 'These universities typically publish requirements earliest (Feb/Mar). Download each prospectus PDF and drop it into Claude Code to auto-compare against current data.'
               },
               4: {
                 title: `[April] Main data update — most universities (${year} intake)`,
                 unis: [
-                  '- [ ] **University of Pretoria** — https://www.up.ac.za/programmes',
-                  '- [ ] **University of Johannesburg** — https://www.uj.ac.za/study-at-uj/',
-                  '- [ ] **University of Cape Town** — https://uct.ac.za/students/prospective-students/undergraduate-prospectus',
-                  '- [ ] **Stellenbosch University** — https://www.su.ac.za/en/apply/undergrad',
-                  '- [ ] **University of the Free State** — https://www.ufs.ac.za/prospective',
-                  '- [ ] **Rhodes University** — https://www.ru.ac.za/admissiongateway/departmentsandfaculties/',
-                  '- [ ] **Tshwane University of Technology** — https://www.tut.ac.za/study-at-tut/undergraduate/',
+                  '- [ ] **University of Pretoria**\\n  - Programmes: https://www.up.ac.za/programmes\\n  - Requirements PDF: search "UP application requirements tables" on their site\\n  - Download and drop it into Claude Code',
+                  '- [ ] **University of Johannesburg**\\n  - Admissions: https://www.uj.ac.za/study-at-uj/\\n  - Look for "Undergraduate Admission Requirements" PDF\\n  - Download and drop it into Claude Code',
+                  '- [ ] **University of Cape Town**\\n  - Prospectus: https://uct.ac.za/students/prospective-students/undergraduate-prospectus\\n  - Download the Undergraduate Prospectus PDF (has FPS requirements)\\n  - Drop it into Claude Code',
+                  '- [ ] **Stellenbosch University**\\n  - Admissions: https://www.su.ac.za/en/apply/undergrad\\n  - Faculty pages have detailed requirements\\n  - Download prospectus PDF and drop it into Claude Code',
+                  '- [ ] **University of the Free State**\\n  - Prospective: https://www.ufs.ac.za/prospective\\n  - Download the Undergraduate Prospectus PDF\\n  - Drop it into Claude Code',
+                  '- [ ] **Rhodes University**\\n  - Requirements: https://www.ru.ac.za/admissiongateway/departmentsandfaculties/requirements/\\n  - Download faculty handbooks if available\\n  - Drop them into Claude Code',
+                  '- [ ] **Tshwane University of Technology**\\n  - Programmes: https://www.tut.ac.za/study-at-tut/undergraduate/\\n  - Look for "Course Information" PDF\\n  - Download and drop it into Claude Code',
                 ],
-                note: 'Most universities open applications around April 1st. New requirements should be available now.'
+                note: 'Most universities open applications around April 1st. Download each prospectus PDF and drop it into Claude Code to auto-compare against current data.'
               },
               6: {
                 title: `[June] Final sweep — NWU, CPUT & stragglers (${year} intake)`,
                 unis: [
-                  '- [ ] **North-West University** — https://studies.nwu.ac.za',
-                  '- [ ] **Cape Peninsula University of Technology** — https://www.cput.ac.za/study/programmes',
+                  '- [ ] **North-West University**\\n  - Studies: https://studies.nwu.ac.za\\n  - Admission requirements: https://studies.nwu.ac.za/undergraduate-studies/admission-requirements\\n  - Download prospectus PDF and drop it into Claude Code',
+                  '- [ ] **Cape Peninsula University of Technology**\\n  - Programmes: https://www.cput.ac.za/study/programmes\\n  - Look for faculty prospectus/handbook PDFs\\n  - Download and drop them into Claude Code',
                 ],
-                note: 'NWU and CPUT publish latest (May/June). Also re-check any universities missed in earlier rounds.'
+                note: 'NWU and CPUT publish latest (May/June). Also re-check any universities missed in earlier rounds. Download prospectus PDFs and drop into Claude Code.'
               }
             };
 
@@ -61,5 +61,5 @@ jobs:
               repo: context.repo.repo,
               title: wave.title,
               labels: ['data-update'],
-              body: `## ${wave.note}\n\n### Universities to check\n\n${wave.unis.join('\n')}\n\n### For each university, update:\n1. \`dataYear\` field\n2. \`dataSource\` field ('official' or 'mixed')\n3. APS/score requirements per programme\n4. Subject requirements (math, physics, life sciences, HL minimums)\n5. Add any new programmes or remove discontinued ones\n\n### After updating:\n- [ ] Test the calculator with sample marks\n- [ ] Deploy to Netlify`
+              body: `## ${wave.note}\n\n### How to update\n1. Visit each university link below and download the prospectus/requirements PDF\n2. Open Claude Code and say: "Update university requirements"\n3. Drop the PDF into the chat — Claude will extract the numbers and compare against current data\n4. Review the diff and confirm the update\n5. Claude will update the code and deploy to Netlify\n\n### Universities to check\n\n${wave.unis.join('\n')}\n\n### What gets updated per university:\n- \`dataYear\` and \`dataSource\` fields\n- APS/score requirements per programme\n- Subject requirements (math, physics, life sciences, HL minimums)\n- New programmes added / discontinued ones removed\n\n### After all updates:\n- [ ] Test the calculator with sample marks\n- [ ] Deploy to Netlify`
             });
