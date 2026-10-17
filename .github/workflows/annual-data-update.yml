@@ -1,0 +1,65 @@
+name: Annual Data Update Reminder
+
+on:
+  schedule:
+    - cron: '0 9 1 3 *'  # March 1st — early publishers
+    - cron: '0 9 1 4 *'  # April 1st — main batch
+    - cron: '0 9 1 6 *'  # June 1st — final sweep
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create update reminder issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const month = new Date().getMonth() + 1;
+            const year = new Date().getFullYear() + 1;
+
+            const waves = {
+              3: {
+                title: `[March] Early data check — Wits, UKZN, DUT (${year} intake)`,
+                unis: [
+                  '- [ ] **Wits University** — https://www.wits.ac.za/course-finder/',
+                  '- [ ] **University of KwaZulu-Natal** — https://applications.ukzn.ac.za',
+                  '- [ ] **Durban University of Technology** — https://www.dut.ac.za/admissions/',
+                ],
+                note: 'These universities typically publish requirements earliest (Feb/Mar). Check if new prospectuses are available.'
+              },
+              4: {
+                title: `[April] Main data update — most universities (${year} intake)`,
+                unis: [
+                  '- [ ] **University of Pretoria** — https://www.up.ac.za/programmes',
+                  '- [ ] **University of Johannesburg** — https://www.uj.ac.za/study-at-uj/',
+                  '- [ ] **University of Cape Town** — https://uct.ac.za/students/prospective-students/undergraduate-prospectus',
+                  '- [ ] **Stellenbosch University** — https://www.su.ac.za/en/apply/undergrad',
+                  '- [ ] **University of the Free State** — https://www.ufs.ac.za/prospective',
+                  '- [ ] **Rhodes University** — https://www.ru.ac.za/admissiongateway/departmentsandfaculties/',
+                  '- [ ] **Tshwane University of Technology** — https://www.tut.ac.za/study-at-tut/undergraduate/',
+                ],
+                note: 'Most universities open applications around April 1st. New requirements should be available now.'
+              },
+              6: {
+                title: `[June] Final sweep — NWU, CPUT & stragglers (${year} intake)`,
+                unis: [
+                  '- [ ] **North-West University** — https://studies.nwu.ac.za',
+                  '- [ ] **Cape Peninsula University of Technology** — https://www.cput.ac.za/study/programmes',
+                ],
+                note: 'NWU and CPUT publish latest (May/June). Also re-check any universities missed in earlier rounds.'
+              }
+            };
+
+            const wave = waves[month];
+            if (!wave) return;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: wave.title,
+              labels: ['data-update'],
+              body: `## ${wave.note}\n\n### Universities to check\n\n${wave.unis.join('\n')}\n\n### For each university, update:\n1. \`dataYear\` field\n2. \`dataSource\` field ('official' or 'mixed')\n3. APS/score requirements per programme\n4. Subject requirements (math, physics, life sciences, HL minimums)\n5. Add any new programmes or remove discontinued ones\n\n### After updating:\n- [ ] Test the calculator with sample marks\n- [ ] Deploy to Netlify`
+            });
