@@ -807,7 +807,7 @@ const ELECTIVE_SUBJECTS = [
 // req: { aps, math, hl (home lang), phys, lifesci, acc } — all minimums in %
 // dataYear: which intake year the requirements are sourced from
 // dataSource: 'official' = from university PDF/website, 'mixed' = combination of official + aggregator sites
-const DATA_LAST_UPDATED = '2026-10-10';
+const DATA_LAST_UPDATED = '2026-10-17';
 const UNI_PROGRAMMES = {
   up: { name: 'University of Pretoria', scoreType: 'standard', scoreLabel: 'APS', url: 'https://www.up.ac.za/programmes', dataYear: '2027', dataSource: 'official', programmes: [
     { name: 'MBChB (Medicine)', icon: '🩺', req: { aps: 35, math: 70, phys: 60, hl: 60 }},
@@ -818,7 +818,7 @@ const UNI_PROGRAMMES = {
     { name: 'BSc Occupational Therapy', icon: '🤲', req: { aps: 30, math: 50, phys: 50, hl: 50 }},
     { name: 'BSc Radiography', icon: '📡', req: { aps: 30, math: 50, phys: 50, hl: 50 }},
     { name: 'BSc Dietetics', icon: '🥗', req: { aps: 28, math: 50, phys: 50, hl: 50 }},
-    { name: 'BEng (Engineering)', icon: '⚙️', req: { aps: 35, math: 70, phys: 70, hl: 60 }},
+    { name: 'BEng (Engineering)', icon: '⚙️', req: { aps: 35, math: 65, phys: 65, hl: 60 }},
     { name: 'BActSc (Actuarial)', icon: '📊', req: { aps: 36, math: 80, hl: 60 }},
     { name: 'LLB (Law)', icon: '⚖️', req: { aps: 35, math: 60, hl: 70 }},
     { name: 'BCom Accounting', icon: '💰', req: { aps: 34, math: 60, hl: 60 }},
@@ -828,7 +828,7 @@ const UNI_PROGRAMMES = {
     { name: 'BCom Human Resource Mgmt', icon: '👔', req: { aps: 30, math: 50, hl: 60 }},
     { name: 'BSc Computer Science', icon: '💻', req: { aps: 30, math: 70, hl: 60 }},
     { name: 'BSc Information Systems', icon: '🖥️', req: { aps: 30, math: 60, hl: 60 }},
-    { name: 'BSc Mathematics', icon: '🔢', req: { aps: 32, math: 70, hl: 60 }},
+    { name: 'BSc Mathematics', icon: '🔢', req: { aps: 34, math: 70, hl: 60 }},
     { name: 'BSc Architecture', icon: '🏛️', req: { aps: 30, math: 50, phys: 50, hl: 60 }},
     { name: 'BSc Quantity Surveying', icon: '📐', req: { aps: 30, math: 60, hl: 60 }},
     { name: 'BSc Geology', icon: '🪨', req: { aps: 34, math: 60, phys: 60, hl: 60 }},
@@ -1983,7 +1983,7 @@ function liveCompareUpdate() {
       <div class="text-center mb-3 pb-3 border-b border-slate-800">
         <p class="text-sm font-bold text-white">${shortName}</p>
         <p class="text-[10px] text-slate-400">${prog.name}</p>
-        <p class="text-[9px] text-slate-500">${UNI_PROGRAMMES[uniKey].dataYear} intake data</p>
+        <p class="text-[9px] text-slate-500">${UNI_PROGRAMMES[uniKey].dataYear} intake data · <a href="${UNI_PROGRAMMES[uniKey].url}" target="_blank" class="text-blue-400 hover:underline">verify officially</a></p>
         <div class="mt-2">
           ${allMet
             ? '<span class="inline-flex items-center gap-1.5 bg-emerald-500/15 text-emerald-400 font-bold text-xs px-3 py-1.5 rounded-full"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>You Qualify</span>'
@@ -2225,7 +2225,7 @@ function liveGapUpdate() {
       <div class="text-center mb-3 pb-3 border-b border-slate-800">
         <span class="w-6 h-6 rounded-full bg-${color}-500/20 flex items-center justify-center text-[10px] font-black text-${color}-400 mx-auto mb-1.5">${c}</span>
         <p class="text-sm font-bold text-white">${prog.icon} ${prog.name}</p>
-        <p class="text-[9px] text-slate-500">${uni.dataYear} intake data</p>
+        <p class="text-[9px] text-slate-500">${uni.dataYear} intake data · <a href="${uni.url}" target="_blank" class="text-blue-400 hover:underline">verify officially</a></p>
         <div class="mt-2">
           ${allMet
             ? '<span class="inline-flex items-center gap-1.5 bg-emerald-500/15 text-emerald-400 font-bold text-xs px-3 py-1.5 rounded-full"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>You Qualify</span>'
