@@ -807,7 +807,7 @@ const ELECTIVE_SUBJECTS = [
 // req: { aps, math, hl (home lang), phys, lifesci, acc } — all minimums in %
 // dataYear: which intake year the requirements are sourced from
 // dataSource: 'official' = from university PDF/website, 'mixed' = combination of official + aggregator sites
-const DATA_LAST_UPDATED = '2026-10-17';
+const DATA_LAST_UPDATED = '2026-10-18';
 const UNI_PROGRAMMES = {
   up: { name: 'University of Pretoria', scoreType: 'standard', scoreLabel: 'APS', url: 'https://www.up.ac.za/programmes', dataYear: '2027', dataSource: 'official', programmes: [
     { name: 'MBChB (Medicine)', icon: '🩺', req: { aps: 35, math: 70, phys: 60, hl: 60 }},
@@ -901,29 +901,30 @@ const UNI_PROGRAMMES = {
     { name: 'B Nursing', icon: '🏥', req: { aps: 36, math: 50, phys: 50, hl: 50 }},
   ]},
   uct: { name: 'University of Cape Town', scoreType: 'uct', scoreLabel: 'FPS', url: 'https://uct.ac.za/students/prospective-students/undergraduate-prospectus', dataYear: '2027', dataSource: 'official', programmes: [
-    { name: 'MBChB (Medicine)', icon: '🩺', req: { aps: 450, math: 70, phys: 70, lifesci: 70, hl: 65 }},
+    { name: 'MBChB (Medicine)', icon: '🩺', req: { aps: 450, math: 70, phys: 70, hl: 65 }},
     { name: 'BSc Physiotherapy', icon: '🏃', req: { aps: 360, math: 60, phys: 65, hl: 65 }},
-    { name: 'BSc Occupational Therapy', icon: '🤲', req: { aps: 340, math: 60, hl: 65 }},
-    { name: 'BSc Engineering', icon: '⚙️', req: { aps: 450, math: 70, phys: 70, hl: 50 }},
-    { name: 'BCom Actuarial', icon: '📊', req: { aps: 500, math: 80, hl: 65 }},
-    { name: 'BBusSc Finance', icon: '💵', req: { aps: 500, math: 70, hl: 65 }},
-    { name: 'LLB / BA Law', icon: '⚖️', req: { aps: 470, math: 50, hl: 65 }},
-    { name: 'BCom Accounting', icon: '💰', req: { aps: 430, math: 60, hl: 50 }},
-    { name: 'BCom Economics', icon: '📈', req: { aps: 430, math: 60, hl: 50 }},
-    { name: 'BCom Marketing/Management', icon: '📣', req: { aps: 430, math: 50, hl: 50 }},
-    { name: 'BSc Computer Science', icon: '💻', req: { aps: 550, math: 70, phys: 60, hl: 50 }},
-    { name: 'BSc Information Systems', icon: '🖥️', req: { aps: 430, math: 60, hl: 50 }},
-    { name: 'BSc Mathematics', icon: '🔢', req: { aps: 480, math: 70, phys: 60, hl: 50 }},
-    { name: 'BSc Architecture/Built Env', icon: '🏛️', req: { aps: 402, math: 60, hl: 50 }},
-    { name: 'BSc Quantity Surveying', icon: '📐', req: { aps: 420, math: 60, phys: 50, hl: 50 }},
-    { name: 'BSc Geology/Earth Sciences', icon: '🪨', req: { aps: 480, math: 60, phys: 60, hl: 50 }},
+    { name: 'BSc Occupational Therapy', icon: '🤲', req: { aps: 340, math: 60, phys: 65, hl: 65 }},
+    { name: 'BSc Engineering', icon: '⚙️', req: { aps: 500, math: 80, phys: 70, hl: 50 }},
+    { name: 'BCom Actuarial', icon: '📊', req: { aps: 500, math: 80, hl: 60 }},
+    { name: 'BBusSc Finance/General', icon: '💵', req: { aps: 435, math: 60, hl: 50 }},
+    { name: 'LLB / BA Law', icon: '⚖️', req: { aps: 500, hl: 65 }},
+    { name: 'BCom Accounting', icon: '💰', req: { aps: 435, math: 60, hl: 50 }},
+    { name: 'BCom Economics', icon: '📈', req: { aps: 435, math: 60, hl: 50 }},
+    { name: 'BCom Marketing/Management', icon: '📣', req: { aps: 435, math: 60, hl: 50 }},
+    { name: 'BSc Computer Science', icon: '💻', fps800: true, req: { aps: 660, math: 70, phys: 60, hl: 50 }},
+    { name: 'BSc Information Systems', icon: '🖥️', req: { aps: 435, math: 60, hl: 50 }},
+    { name: 'BSc Mathematics', icon: '🔢', fps800: true, req: { aps: 660, math: 70, phys: 60, hl: 50 }},
+    { name: 'BSc Architecture/Built Env', icon: '🏛️', req: { aps: 450, math: 50, hl: 50 }},
+    { name: 'BSc Construction/Property', icon: '📐', req: { aps: 450, math: 65, hl: 50 }},
+    { name: 'BSc Geology/Earth Sciences', icon: '🪨', fps800: true, req: { aps: 660, math: 70, phys: 60, hl: 50 }},
     { name: 'BA Psychology', icon: '🧠', req: { aps: 380, hl: 50 }},
     { name: 'BA Humanities', icon: '📚', req: { aps: 380, hl: 50 }},
     { name: 'BA Media Studies/Film', icon: '📰', req: { aps: 380, hl: 50 }},
     { name: 'BA International Relations', icon: '🌍', req: { aps: 380, hl: 50 }},
+    { name: 'BA PPE', icon: '🏛️', req: { aps: 450, math: 60, hl: 50 }},
     { name: 'BA Social Sciences', icon: '👥', req: { aps: 380, hl: 50 }},
-    { name: 'BA Social Work', icon: '🤝', req: { aps: 380, hl: 50 }},
-    { name: 'BSc Biological Sciences', icon: '🔬', req: { aps: 480, math: 60, lifesci: 60, hl: 50 }},
+    { name: 'BA Social Work', icon: '🤝', req: { aps: 450, hl: 50 }},
+    { name: 'BSc Biological Sciences', icon: '🔬', fps800: true, req: { aps: 660, math: 70, lifesci: 60, hl: 50 }},
     { name: 'BEd (PGCE)', icon: '🎓', req: { aps: 380, hl: 50 }},
     { name: 'B Nursing', icon: '🏥', req: { aps: 380, math: 50, lifesci: 50, hl: 50 }},
   ]},
@@ -1502,7 +1503,7 @@ function getGapResultsText() {
       if (!sel) continue;
       const prog = uni.programmes[parseInt(sel.value)];
       if (!prog) continue;
-      const score = computeGapScore(uni, nonLO, hl, fal, mathVal, isMathLit, elecMarks);
+      const score = computeGapScore(uni, nonLO, hl, fal, mathVal, isMathLit, elecMarks, prog);
       const met = score >= prog.req.aps;
       const checks = [];
       if (prog.req.hl) checks.push({ f: 'HL', have: hl, need: prog.req.hl });
@@ -1521,7 +1522,7 @@ function getGapResultsText() {
       const uni = UNI_PROGRAMMES[uniKey];
       const prog = uni.programmes.find(p => p.name.replace(/\s*\(.*?\)\s*/g, '').trim() === degreeBase || p.name === degreeBase);
       if (!prog) return;
-      const score = computeGapScore(uni, nonLO, hl, fal, mathVal, isMathLit, elecMarks);
+      const score = computeGapScore(uni, nonLO, hl, fal, mathVal, isMathLit, elecMarks, prog);
       const met = score >= prog.req.aps;
       const checks = [];
       if (prog.req.hl) checks.push({ f: 'HL', have: hl, need: prog.req.hl });
@@ -1538,7 +1539,7 @@ function getGapResultsText() {
   return lines.join('\n');
 }
 
-function computeGapScore(uni, nonLO, hl, fal, mathVal, isMathLit, elecMarks) {
+function computeGapScore(uni, nonLO, hl, fal, mathVal, isMathLit, elecMarks, prog) {
   if (uni.scoreType === 'standard') return nonLO.map(nscPoint).sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
   if (uni.scoreType === 'wits') {
     const lo = parseInt(document.getElementById('lo').value) || 0;
@@ -1550,7 +1551,14 @@ function computeGapScore(uni, nonLO, hl, fal, mathVal, isMathLit, elecMarks) {
     elecMarks.forEach(e => w.push(witsPoint(e)));
     return w.reduce((s, v) => s + v, 0);
   }
-  if (uni.scoreType === 'uct') return [...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
+  if (uni.scoreType === 'uct') {
+    let fps = [...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
+    if (prog && prog.fps800) {
+      const physMark = elecMarks[Array.from(document.querySelectorAll('#electives .elective-select')).map(s => s.value).indexOf('Physical Sciences')] || 0;
+      fps += mathVal + physMark;
+    }
+    return fps;
+  }
   return parseFloat(([...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0) / 6).toFixed(1));
 }
 
@@ -1734,11 +1742,15 @@ function setUniTab(tab) {
   renderEligibility();
 }
 
-function getUniScore(uniKey) {
+function getUniScore(uniKey, prog) {
   if (!lastResults) return 0;
   const r = lastResults;
   if (uniKey === 'wits') return r.witsTotal;
-  if (uniKey === 'uct') return r.uctFPS;
+  if (uniKey === 'uct') {
+    let fps = r.uctFPS;
+    if (prog && prog.fps800) fps += r.math + getSubjectMark('Physical Sciences');
+    return fps;
+  }
   if (uniKey === 'stell') return r.stellAvg;
   return r.standardAPS; // up, uj
 }
@@ -1759,7 +1771,7 @@ function getScoreUnit(uniKey) {
 function checkReqs(prog, uniKey) {
   if (!lastResults) return { eligible: false, gaps: [] };
   const r = lastResults;
-  const score = getUniScore(uniKey);
+  const score = getUniScore(uniKey, prog);
   const gaps = [];
   if (score < prog.req.aps) gaps.push({ field: UNI_PROGRAMMES[uniKey].scoreLabel, have: score, need: prog.req.aps, unit: getScoreUnit(uniKey) });
   if (prog.req.math && r.math < prog.req.math) gaps.push({ field: r.isMathLit ? 'Math Lit' : 'Maths', have: r.math, need: prog.req.math, unit: '%' });
@@ -1928,7 +1940,7 @@ function liveCompareUpdate() {
   const elecNames = Array.from(document.querySelectorAll('#electives .elective-select')).map(s => s.value || '');
   const nonLO = [hl, fal, mathVal, ...elecMarks];
 
-  function computeScore(uni) {
+  function computeScore(uni, prog) {
     if (uni.scoreType === 'standard') return nonLO.map(nscPoint).sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
     if (uni.scoreType === 'wits') {
       let w = [];
@@ -1939,7 +1951,14 @@ function liveCompareUpdate() {
       elecMarks.forEach(e => w.push(witsPoint(e)));
       return w.reduce((s, v) => s + v, 0);
     }
-    if (uni.scoreType === 'uct') return [...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
+    if (uni.scoreType === 'uct') {
+      let fps = [...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
+      if (prog && prog.fps800) {
+        const physMark = elecMarks[elecNames.indexOf('Physical Sciences')] || 0;
+        fps += mathVal + physMark;
+      }
+      return fps;
+    }
     return parseFloat(([...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0) / 6).toFixed(1));
   }
 
@@ -1955,7 +1974,7 @@ function liveCompareUpdate() {
     });
     if (!prog) return;
 
-    const score = computeScore(uni);
+    const score = computeScore(uni, prog);
     const unit = getScoreUnit(uniKey);
 
     const gaps = [];
@@ -2136,7 +2155,7 @@ function liveGapUpdate() {
   const elecNames = Array.from(document.querySelectorAll('#electives .elective-select')).map(s => s.value || '');
   const nonLO = [hl, fal, mathVal, ...elecMarks];
 
-  function computeScore(uni) {
+  function computeScore(uni, prog) {
     if (uni.scoreType === 'standard') return nonLO.map(nscPoint).sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
     if (uni.scoreType === 'wits') {
       let w = [];
@@ -2147,7 +2166,14 @@ function liveGapUpdate() {
       elecMarks.forEach(e => w.push(witsPoint(e)));
       return w.reduce((s, v) => s + v, 0);
     }
-    if (uni.scoreType === 'uct') return [...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
+    if (uni.scoreType === 'uct') {
+      let fps = [...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0);
+      if (prog && prog.fps800) {
+        const physMark = elecMarks[elecNames.indexOf('Physical Sciences')] || 0;
+        fps += mathVal + physMark;
+      }
+      return fps;
+    }
     return parseFloat(([...nonLO].sort((a, b) => b - a).slice(0, 6).reduce((s, v) => s + v, 0) / 6).toFixed(1));
   }
 
@@ -2203,7 +2229,6 @@ function liveGapUpdate() {
   let allReqHTML = '';
   const uniKey = document.getElementById('gap2-uni').value;
   const uni = UNI_PROGRAMMES[uniKey];
-  const score = computeScore(uni);
   const unit = getScoreUnit(uniKey);
 
   for (let c = 1; c <= activeCareerCount; c++) {
@@ -2213,6 +2238,7 @@ function liveGapUpdate() {
     const prog = uni.programmes[progIdx];
     if (!prog) continue;
 
+    const score = computeScore(uni, prog);
     const gaps = buildGaps(uniKey, prog, uni, score);
     const allMet = gaps.every(g => g.met);
     const metCount = gaps.filter(g => g.met).length;
